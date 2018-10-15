@@ -1,5 +1,5 @@
 @extends('layouts.errors')
 
-@section('title', 'Page Not Found')
+@section('title', 'Pagina No Encontrad')
 
-@section('message', 'Sorry, the page you are looking for could not be found.')
+@section('message', 'Lo sentimos, no se pudo encontrar la pagina que estas buscando.')

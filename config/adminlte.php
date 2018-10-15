@@ -42,8 +42,11 @@ return [
     | Menu Logos
     |--------------------------------------------------------------------------
     */
-    'logo_lg'   => '<b>Admin</b>LTE',
-    'logo_mini' => '<b>A</b>LTE',
+    /*'logo_lg'   => '<b>Admin</b>LTE',
+    'logo_mini' => '<b>A</b>LTE',*/
+
+     'logo_lg'   => '<b>Banda</b>Sur',
+     'logo_mini' => '<b>B</b>Sur',
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +59,7 @@ return [
     |
     */
 
-    'credits' => 'Powered By: <a target="_blank" href="mailto:user@example.com">Developer</a>',
+    'credits' => 'Creado por: <a target="_blank" href="mailto:user@example.com">BandaSur.cl</a>',
 
     /*
     |--------------------------------------------------------------------------

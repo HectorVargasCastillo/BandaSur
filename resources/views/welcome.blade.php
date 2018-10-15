@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 {{-- Page Title --}}
-@section('page-title', 'Welcome')
+@section('page-title', 'Bienvenida')
 
 {{-- Page Subtitle --}}
 @section('page-subtitle', '')

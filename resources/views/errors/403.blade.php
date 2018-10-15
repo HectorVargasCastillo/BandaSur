@@ -1,5 +1,5 @@
 @extends('layouts.errors')
 
-@section('title', 'Forbidden')
+@section('title', 'Prohibido')
 
-@section('message', '403, Forbidden.')
+@section('message', '403, Prohibido.')

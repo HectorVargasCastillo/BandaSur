@@ -2,20 +2,20 @@
 
 // Home
 Breadcrumbs::register('home', function ($breadcrumbs) {
-    $breadcrumbs->push('Home', route('welcome'));
+    $breadcrumbs->push('Inicio', route('welcome'));
 });
 
 // Home > Login
 Breadcrumbs::register('login', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Login', route('login'));
+    $breadcrumbs->push('Iniciar Sesion', route('login'));
 });
 
 if (config('adminlte.registration_open')) {
     // Home > Register
     Breadcrumbs::register('register', function ($breadcrumbs) {
         $breadcrumbs->parent('home');
-        $breadcrumbs->push('Register', route('register'));
+        $breadcrumbs->push('Registrarse', route('register'));
     });
 }
 
