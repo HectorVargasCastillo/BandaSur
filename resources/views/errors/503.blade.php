@@ -1,5 +1,5 @@
 @extends('layouts.errors')
 
-@section('title', 'Be right back')
+@section('title', 'Vuelvo enseguida')
 
-@section('message', 'Be right back.')
+@section('message', 'Vuelvo enseguida.')
