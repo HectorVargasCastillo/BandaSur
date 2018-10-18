@@ -15,8 +15,10 @@ class EstiloController extends Controller
     public function index()
     {
         //
+        
+        
 		$listado_estilo = Estilo::all();
-       return view("listaestilo",['listado_estilo'=>$listado_estilo]);
+        return view("listaestilo",['listado_estilo'=>$listado_estilo]);
     }
 
     /**

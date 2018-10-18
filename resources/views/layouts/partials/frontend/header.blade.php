@@ -12,7 +12,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Linki</a></li>
+                    <li><a href="/">Link</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -27,9 +27,7 @@
                         @if (Route::has('register'))
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @endif
-                        @if (Route::has('admin::index'))
-                            <li><a href="{{ url('/menuadm') }}">Administrador</a></li>
-                        @endif
+                       
                     @else
                         @if (Route::has('impersonate.stop') && Auth::user()->can('stopImpersonate', \App\User::class))
                         <li>

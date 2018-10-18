@@ -98,8 +98,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-Route::get('/menuadm', function () {
-    return view('/menuadm');
-});
 
 
+
+Route::resource('estilos', 'EstiloController');

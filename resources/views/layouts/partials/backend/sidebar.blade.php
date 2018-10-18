@@ -11,14 +11,14 @@
             </div>
             <div class="pull-left info">
                 <p><a href="{{ route('dashboard::profile') }}">{{ Auth::user()->name }}</a></p>
-                <a href="{{ route('dashboard::profile') }}"><i class="fa fa-circle text-success"></i> Online</a>
+                <a href="{{ route('dashboard::profile') }}"><i class="fa fa-circle text-success"></i> En linea</a>
             </div>
         </div>
 
         <!-- search form -->
         <form action="#" method="get" class="sidebar-form" id="sidebar-form">
             <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..." id="search-input">
+                <input type="text" name="q" class="form-control" placeholder="Buscar..." id="search-input">
                 <span class="input-group-btn">
                     <button type="submit" name="search" id="search-btn" class="btn btn-flat">
                         <i class="fa fa-search"></i>

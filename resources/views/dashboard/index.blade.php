@@ -1,16 +1,11 @@
 {{-- Extends Layout --}}
 @extends('layouts.backend')
 
-{{-- Breadcrumbs --}}
-@section('breadcrumbs')
-    {!! Breadcrumbs::render('dashboard') !!}
-@endsection
-
 {{-- Page Title --}}
-@section('page-title', 'Dashboard')
+@section('page-title', 'Menu Principal')
 
 {{-- Page Subtitle --}}
-@section('page-subtitle', 'it all starts here')
+@section('page-subtitle', 'todo comienza aqui')
 
 {{-- Header Extras to be Included --}}
 @section('head-extras')
