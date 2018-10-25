@@ -16,7 +16,7 @@
 
     <div class="col-md-12">
         <div class="form-group margin-b-5 margin-t-5{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="email">Email *</label>
+            <label for="email">Correo Electronico *</label>
             <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email', $record->email) }}" required>
 
             @if ($errors->has('email'))
@@ -31,7 +31,7 @@
 
     <div class="col-md-12">
         <div class="form-group margin-b-5 margin-t-5{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label for="password">Password</label>
+            <label for="password">Contraseña</label>
             <input type="password" class="form-control" name="password" placeholder="Password">
 
             @if ($errors->has('password'))
@@ -46,7 +46,7 @@
 
     <div class="col-md-12">
         <div class="form-group margin-b-5 margin-t-5{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-            <label for="password_confirmation">Confirm Password</label>
+            <label for="password_confirmation">Confirmar Contraseña</label>
             <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
 
             @if ($errors->has('password_confirmation'))

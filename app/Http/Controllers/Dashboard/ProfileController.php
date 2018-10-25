@@ -47,9 +47,9 @@ class ProfileController extends Controller
         }
 
         if ($user->update($updateValues)) {
-            flash()->success('Profile updated successfully.');
+            flash()->success('Perfil actualizado correctamente.');
         } else {
-            flash()->info('Profile was not updated.');
+            flash()->info('Perfil no fue actualizado.');
         }
 
         return redirect(route('dashboard::profile'));

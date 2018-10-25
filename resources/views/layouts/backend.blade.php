@@ -89,6 +89,8 @@
                     @include('flash::message')
 
                     @yield('content')
+					
+					 <img src="img/bandasur.jpg"> 
 
                 </section>
                 <!-- /.content -->

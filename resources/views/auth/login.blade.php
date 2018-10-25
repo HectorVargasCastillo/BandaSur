@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Inicar Sesion</div>
+                <div class="panel-heading">Iniciar Sesion</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
@@ -66,7 +66,7 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Olvido tu contraseña?
+                                    Olvido su contraseña?
                                 </a>
                             </div>
                         </div>

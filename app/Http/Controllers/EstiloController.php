@@ -7,39 +7,45 @@ use App\Estilo;
 
 class EstiloController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
-        
-        
+      
 		$listado_estilo = Estilo::all();
-        return view("listaestilo",['listado_estilo'=>$listado_estilo]);
+        $registros = count($listado_estilo);
+        if ($registros == 0)
+        {
+            //return view("/estilo/listaestilovacio",['listado_estilo'=>$listado_estilo]); 
+			return view('/estilo/nuevoestilo',['registros'=>$registros]);
+
+        }
+        else
+        {
+          return view("/estilo/listaestilo",['listado_estilo'=>$listado_estilo]);  
+        }
+
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         //
+        return view('/estilo/nuevoestilo',['registros'=>"1"]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'nombre' => 'required|max:30|unique:estilo,nombre', 
+            'estado' => 'required|max:1', 
+        ]);
+        $estilob = new Estilo;
+        $estilob->nombre=$request->nombre;
+        $estilob->estado=$request->estado;
+        $estilob->save();
+        return redirect('/estilos');
     }
 
     /**
@@ -62,6 +68,8 @@ class EstiloController extends Controller
     public function edit($id)
     {
         //
+        $idestilo = Estilo::find($id);
+        return view("/estilo/editaestilo",['idestilo'=>$idestilo]);
     }
 
     /**
@@ -74,6 +82,16 @@ class EstiloController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nombre' => 'required|max:30', 
+            'estado' => 'required|max:1', 
+            
+        ]);
+        $estilob = Estilo::find($id);
+        $estilob->nombre=$request->nombre;
+        $estilob->estado=$request->estado;
+        $estilob->save();
+        return redirect('/estilos');
     }
 
     /**
@@ -85,5 +103,8 @@ class EstiloController extends Controller
     public function destroy($id)
     {
         //
+        $estilob = Estilo::find($id);
+        $estilob->delete();
+        return redirect('/estilos');
     }
 }

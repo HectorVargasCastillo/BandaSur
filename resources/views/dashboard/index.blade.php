@@ -1,6 +1,11 @@
 {{-- Extends Layout --}}
 @extends('layouts.backend')
 
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('dashboard') !!}
+@endsection
+
 {{-- Page Title --}}
 @section('page-title', 'Menu Principal')
 

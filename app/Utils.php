@@ -77,7 +77,7 @@ final class Utils
             if ($user->isAdmin()) {
                 return 'Administrator';
             } else {
-                return 'Member';
+                return 'Miembro';
             }
         }
 

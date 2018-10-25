@@ -229,3 +229,12 @@
 .small-box:hover .icon.smaller {
     font-size: 75px;
 }
+
+.contenedor-form {
+    position:relative;
+    width  : 740px;
+    height : 130px;
+    margin : 0 auto;
+    background: #FFF url(background.jpg);
+    border: 2px solid #ccc;
+}

@@ -3,82 +3,110 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Banda;
+use App\Pais;
+use App\Ciudad;
+use App\Estilo;
 
 class BandaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+        $listado_banda = Banda::all();
+        return view("/banda/listabanda",['listado_banda'=>$listado_banda]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        $pais_collection = Pais::pluck('nombre','id');
+        $pais = $pais_collection->all();
+        $pais = array('0' => 'Selecione Pais') + $pais;
+		
+		$ciudad_collection = Ciudad::pluck('nombre','id');
+        $ciudad = $ciudad_collection->all();
+        $ciudad = array('0' => 'Selecione Ciudad') + $ciudad;
+		
+		$estilo_collection = Estilo::pluck('nombre','id');
+        $estilo = $estilo_collection->all();
+        $estilo = array('0' => 'Selecione Estilo') + $estilo;
+		
+        return view('/banda/nuevobanda',['pais'=>$pais,'ciudad'=>$ciudad,'estilo'=>$estilo]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required|max:30|unique:banda,nombre',
+            'pais' => 'numeric|min:1', 
+			'ciudad' => 'numeric|min:1', 
+			'estilo' => 'numeric|min:1',
+            'representante' => 'required|max:30|unique:banda,representante',
+			'estado' => 'required|max:1', 
+        ]);
+        $bandab = new Banda;
+        $bandab->nombre=$request->nombre;
+		$bandab->pais_id=$request->pais;
+		$bandab->ciudad_id=$request->ciudad;
+		$bandab->estilo_id=$request->estilo;
+        $bandab->imagen=$request->imagen;
+        $bandab->representante=$request->representante;
+        $bandab->estado=$request->estado;
+        $bandab->save();
+        //return redirect()->back();
+        return redirect('/bandas');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $pais_collection = Pais::pluck('nombre','id');
+        $pais = $pais_collection->all();
+        $pais = array('0' => 'Selecione Pais') + $pais;
+		$ciudad_collection = Ciudad::pluck('nombre','id');
+        $ciudad = $ciudad_collection->all();
+        $ciudad = array('0' => 'Selecione Ciudad') + $ciudad;
+		$estilo_collection = Estilo::pluck('nombre','id');
+        $estilo = $estilo_collection->all();
+        $estilo = array('0' => 'Selecione Estilo') + $estilo;
+		
+        $idbanda = Banda::find($id);
+        return view('/banda/editabanda',['idbanda'=>$idbanda,'pais'=>$pais,'ciudad'=>$ciudad,'estilo'=>$estilo]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nombre' => 'required|max:30',
+            'pais' => 'numeric|min:1', 
+			'ciudad' => 'numeric|min:1', 
+			'estilo' => 'numeric|min:1', 
+            'representante' => 'required|max:30',
+            'estado' => 'required|max:1', 
+        ]);
+        $bandab = Banda::find($id);
+        $bandab->nombre=$request->nombre;
+        $bandab->pais_id=$request->pais;
+		$bandab->ciudad_id=$request->ciudad;
+		$bandab->estilo_id=$request->estilo;
+        $bandab->representante=$request->representante;
+        $bandab->estado=$request->estado;
+        $bandab->save();
+        return redirect('/bandas');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $bandab = Banda::find($id);
+        $bandab->delete();
+        return redirect('/bandas');
     }
 }

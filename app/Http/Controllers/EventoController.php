@@ -3,82 +3,137 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Evento;
+use App\Pais;
+use App\Ciudad;
+use App\Banda;
+use App\Productora;
 
 class EventoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+        $listado_evento = Evento::all();
+        $registros = count($listado_evento);
+        if ($registros == 0)
+        {
+            return view("/evento/listaeventovacio");  
+        }
+        else
+        {
+          return view("/evento/listaevento",['listado_evento'=>$listado_evento]);  
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        $pais_collection = Pais::pluck('nombre','id');
+        $pais = $pais_collection->all();
+        $pais = array('0' => 'Selecione Pais') + $pais;
+		
+		$ciudad_collection = Ciudad::pluck('nombre','id');
+        $ciudad = $ciudad_collection->all();
+        $ciudad = array('0' => 'Selecione Ciudad') + $ciudad;
+		
+		$banda_collection = Banda::pluck('nombre','id');
+        $banda = $banda_collection->all();
+        $banda = array('0' => 'Selecione Banda') + $banda;
+		
+		$productora_collection = Productora::pluck('nombre','id');
+        $productora = $productora_collection->all();
+        $productora = array('0' => 'Selecione Productora') + $productora;
+		
+        return view('/evento/nuevoevento',['pais'=>$pais,'ciudad'=>$ciudad,'banda'=>$banda,'productora'=>$productora]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required|max:30|unique:evento,nombre',
+            'pais' => 'numeric|min:1', 
+			'ciudad' => 'numeric|min:1', 
+			'recinto' => 'required|max:30|unique:evento,recinto',
+			'fecha' => 'required', 
+			'hora' => 'required',
+			'banda' => 'numeric|min:1',
+			'productora' => 'numeric|min:1',
+			'estado' => 'required|max:1', 
+        ]);
+        $eventob = new evento;
+        $eventob->nombre=$request->nombre;
+		$eventob->pais_id=$request->pais;
+		$eventob->ciudad_id=$request->ciudad;
+		$eventob->recinto=$request->recinto;
+		$eventob->fecha=$request->fecha;
+		$eventob->hora=$request->hora;
+		$eventob->banda_id=$request->banda;
+		$eventob->productora_id=$request->productora;
+        $eventob->estado=$request->estado;
+        $eventob->save();
+        //return redirect()->back();
+        return redirect('/eventos');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $pais_collection = Pais::pluck('nombre','id');
+        $pais = $pais_collection->all();
+        $pais = array('0' => 'Selecione Pais') + $pais;
+		$ciudad_collection = Ciudad::pluck('nombre','id');
+        $ciudad = $ciudad_collection->all();
+        $ciudad = array('0' => 'Selecione Ciudad') + $ciudad;
+		$banda_collection = Banda::pluck('nombre','id');
+        $banda = $banda_collection->all();
+        $banda = array('0' => 'Selecione Banda') + $banda;
+		$productora_collection = Productora::pluck('nombre','id');
+        $productora = $productora_collection->all();
+        $productora = array('0' => 'Selecione Productora') + $productora;
+		
+        $idevento = evento::find($id);
+        return view('/evento/editaevento',['idevento'=>$idevento,'pais'=>$pais,'ciudad'=>$ciudad,'banda'=>$banda,'productora'=>$productora]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nombre' => 'required|max:30',
+            'pais' => 'numeric|min:1', 
+			'ciudad' => 'numeric|min:1', 
+			'recinto' => 'required|max:30',
+			'fecha' => 'required', 
+			'hora' => 'required',
+			'banda' => 'numeric|min:1',
+			'productora' => 'numeric|min:1',
+			'estado' => 'required|max:1', 
+        ]);
+        $eventob = evento::find($id);
+        $eventob->nombre=$request->nombre;
+		$eventob->pais_id=$request->pais;
+		$eventob->ciudad_id=$request->ciudad;
+		$eventob->recinto=$request->recinto;
+		$eventob->fecha=$request->fecha;
+		$eventob->hora=$request->hora;
+		$eventob->banda_id=$request->banda;
+		$eventob->productora_id=$request->productora;
+        $eventob->estado=$request->estado;
+        $eventob->save();
+        return redirect('/eventos');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $eventob = evento::find($id);
+        $eventob->delete();
+        return redirect('/eventos');
     }
 }

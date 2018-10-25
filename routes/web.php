@@ -98,7 +98,24 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-
-
-
 Route::resource('estilos', 'EstiloController');
+
+Route::resource('estado_eventos', 'EstadoEventoController');
+
+Route::resource('paises', 'PaisController');
+
+Route::resource('ciudades', 'CiudadController');
+
+Route::resource('instrumentos', 'InstrumentoController');
+
+Route::resource('productoras', 'ProductoraController');
+
+Route::resource('bandas', 'BandaController');
+
+Route::resource('integrantes', 'IntegranteController');
+
+Route::get('integrantes/integrantesxBanda/{id}', 'IntegranteController@integrantesxBanda')->name('integrantesxBanda');
+
+Route::get('integrantes/creaintegranteBanda/{id}', 'IntegranteController@creaintegranteBanda')->name('creaintegranteBanda');
+
+Route::resource('eventos', 'EventoController');

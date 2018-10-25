@@ -67,7 +67,7 @@
                               style="display: none;" class="hidden form-inline">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
                     @endif
                 </td>

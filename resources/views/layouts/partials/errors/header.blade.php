@@ -23,14 +23,14 @@
                 <ul class="nav navbar-nav">
                     @guest
                         @if (Route::has('login'))
-                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('login') }}">Inicio Sesion</a></li>
                         @endif
                         @if (Route::has('register'))
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @endif
                     @else
                         @if (Route::has('dashboard::index'))
-                            <li><a href="{{ route('dashboard::index') }}">Dashboard</a></li>
+                            <li><a href="{{ route('dashboard::index') }}">Menu Principal</a></li>
                         @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -42,7 +42,7 @@
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Salir
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

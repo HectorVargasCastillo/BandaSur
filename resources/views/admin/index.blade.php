@@ -2,10 +2,10 @@
 @extends('layouts.backend')
 
 {{-- Page Title --}}
-@section('page-title', 'Admin')
+@section('page-title', 'Administrador')
 
 {{-- Page Subtitle --}}
-@section('page-subtitle', 'Control panel')
+@section('page-subtitle', 'Panel de Control')
 
 {{-- Breadcrumbs --}}
 @section('breadcrumbs')
@@ -30,7 +30,7 @@
                 <div class="icon smaller">
                     <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
-                <a href="{{ route('admin::users.index') }}" class="small-box-footer">List Users <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin::users.index') }}" class="small-box-footer">Lista Usuarios <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
