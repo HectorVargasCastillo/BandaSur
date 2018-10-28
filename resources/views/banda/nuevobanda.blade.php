@@ -25,7 +25,9 @@
                         {{Session::get('flash_message')}}
                     @endif 
 
-            <form class="form-horizontal"  method="POST" action="{{url('/bandas')}}">
+                   
+
+            <form class="form-horizontal"  method="POST" enctype="multipart/form-data"   action="{{url('/bandas')}}"  >
                    {{ csrf_field() }}
               <div class="box-body">
 
@@ -43,14 +45,14 @@
                     </div>
                   </div>
 				  
-				          <div class="form-group">
+				  <div class="form-group">
                     <label for="ciudad" class="col-sm-2 control-label">Ciudad</label>
                     <div class="col-sm-10">
                            {{Form::select('ciudad', $ciudad,0,['class' => 'form-control'])}} 
                     </div>
                   </div>
 				  
-				          <div class="form-group">
+				  <div class="form-group">
                     <label for="estilo" class="col-sm-2 control-label">Estilo</label>
                     <div class="col-sm-10">
                            {{Form::select('estilo', $estilo,0,['class' => 'form-control'])}} 
@@ -61,7 +63,7 @@
                   <div class="form-group">
                     <label for="imagen" class="col-sm-2 control-label" align="left">Imagen Referencial</label>
                     <div class="col-sm-10">
-                        {{Form::file('imagen')}}
+                        {{Form::file('imagen',['value'=> 'Elija'])}}
                     </div>
                   </div>
 

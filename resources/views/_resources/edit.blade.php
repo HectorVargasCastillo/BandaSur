@@ -3,7 +3,7 @@
 
 <?php
 $_pageTitle = (isset($addVarsForView['_pageTitle']) && !empty($addVarsForView['_pageTitle']) ? $addVarsForView['_pageTitle'] : ucwords($resourceTitle));
-$_pageSubtitle = (isset($addVarsForView['_pageSubtitle']) && !empty($addVarsForView['_pageSubtitle']) ? $addVarsForView['_pageSubtitle'] : "Edit " . str_singular($_pageTitle));
+$_pageSubtitle = (isset($addVarsForView['_pageSubtitle']) && !empty($addVarsForView['_pageSubtitle']) ? $addVarsForView['_pageSubtitle'] : "Editar " . str_singular($_pageTitle));
 $_formFiles = isset($addVarsForView['formFiles']) ? $addVarsForView['formFiles'] : false;
 $_listLink = route($resourceRoutesAlias.'.index');
 $_createLink = route($resourceRoutesAlias.'.create');
@@ -42,22 +42,22 @@ $_printLink = false;
                     {{ redirect_back_field() }}
 
                     <div class="box-header with-border">
-                        <h3 class="box-title">Edit {{ $record->getRecordTitle() }}</h3>
+                        <h3 class="box-title">Editar {{ $record->getRecordTitle() }}</h3>
 
                         <div class="box-tools">
                             <a href="{{ $_listLink }}" class="btn btn-sm btn-primary margin-r-5 margin-l-5">
-                                <i class="fa fa-search"></i> <span>List</span>
+                                <i class="fa fa-search"></i> <span>Listar</span>
                             </a>
                             <a href="{{ $_createLink }}" class="btn btn-sm btn-primary margin-r-5 margin-l-5">
-                                <i class="fa fa-plus"></i> <span>Add</span>
+                                <i class="fa fa-plus"></i> <span>Agregar</span>
                             </a>
                             @if ($_printLink)
                                 <a href="{{ $_printLink }}" target="_blank" class="btn btn-sm btn-default margin-r-5 margin-l-5">
-                                    <i class="fa fa-print"></i> <span>Print</span>
+                                    <i class="fa fa-print"></i> <span>Imprimir</span>
                                 </a>
                             @endif
                             <button class="btn btn-sm btn-info margin-r-5 margin-l-5">
-                                <i class="fa fa-save"></i> <span>Save</span>
+                                <i class="fa fa-save"></i> <span>Grabar</span>
                             </button>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ $_printLink = false;
                         <div class="col-xs-6">
                             <div class="text-center margin-b-5 margin-t-5">
                                 <button class="btn btn-info">
-                                    <i class="fa fa-save"></i> <span>Save</span>
+                                    <i class="fa fa-save"></i> <span>Grabar</span>
                                 </button>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ $_printLink = false;
                         <div class="col-xs-6">
                             <div class="text-center margin-b-5 margin-t-5">
                                 <a href="{{ $_listLink }}" class="btn btn-default">
-                                    <i class="fa fa-ban"></i> <span>Cancel</span>
+                                    <i class="fa fa-ban"></i> <span>Cancelar</span>
                                 </a>
                             </div>
                         </div>

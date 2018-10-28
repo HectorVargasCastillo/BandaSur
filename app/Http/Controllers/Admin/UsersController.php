@@ -34,7 +34,7 @@ class UsersController extends Controller
     /**
      * @var string
      */
-    protected $resourceTitle = 'Users';
+    protected $resourceTitle = 'Usuarios';
 
     /**
      * Used to validate store.
@@ -120,7 +120,7 @@ class UsersController extends Controller
     private function checkDestroy($record)
     {
         if (Auth::user()->id == $record->id) {
-            flash()->error('You can not delete your own user.');
+            flash()->error('No puedes borrar tu propio usuario.');
 
             return false;
         }

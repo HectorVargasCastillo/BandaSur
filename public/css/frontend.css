@@ -221,3 +221,8 @@
 .aa-suggestion:hover, .aa-suggestion.aa-cursor {
     background-color: rgba(241, 241, 241, 0.35);
 }
+
+.carousel-caption {
+    font-size: 30px;
+    margin-bottom: 25px;
+}

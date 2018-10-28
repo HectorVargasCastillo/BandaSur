@@ -65,7 +65,7 @@
                   </div>
 				  
 				  <div class="form-group">
-                    <label for="hora" class="col-sm-2 control-label" align="left">Fecha Evento</label>
+                    <label for="hora" class="col-sm-2 control-label" align="left">Hora Evento</label>
                     <div class="col-sm-10">
                         {{Form::time('hora', '',['class' => 'form-control'])}}
                     </div>

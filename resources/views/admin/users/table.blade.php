@@ -3,11 +3,11 @@
         <thead>
             <!--<th style="width: 10px;"><button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button></th>-->
             <th>#</th>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Admin</th>
-            <th style="width: 120px;">Actions</th>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Correo Electronico</th>
+            <th>Administrador</th>
+            <th style="width: 120px;">Acciones</th>
         </thead>
         <tbody>
         @foreach ($records as $record)
@@ -35,7 +35,7 @@
                 </td>
                 <td>{{ $record->email }}</td>
                 @if ($record->is_admin == true)
-                    <td><span class="label label-info">Yes</span></td>
+                    <td><span class="label label-info">Si</span></td>
                 @else
                     <td><span class="label label-warning">No</span></td>
                 @endif

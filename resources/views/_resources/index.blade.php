@@ -3,7 +3,7 @@
 
 <?php
 $_pageTitle = (isset($addVarsForView['_pageTitle']) && ! empty($addVarsForView['_pageTitle']) ? $addVarsForView['_pageTitle'] : ucwords($resourceTitle));
-$_pageSubtitle = (isset($addVarsForView['_pageSubtitle']) && ! empty($addVarsForView['_pageSubtitle']) ? $addVarsForView['_pageSubtitle'] : 'List');
+$_pageSubtitle = (isset($addVarsForView['_pageSubtitle']) && ! empty($addVarsForView['_pageSubtitle']) ? $addVarsForView['_pageSubtitle'] : 'Listado');
 $_listLink = route($resourceRoutesAlias.'.index');
 $_createLink = route($resourceRoutesAlias.'.create');
 
@@ -43,13 +43,13 @@ if (count($records) > 0) {
             <div class="box-tools pull-right">
                 <form class="form" role="form" method="GET" action="{{ $_listLink }}">
                     <div class="input-group input-group-sm margin-r-5 pull-left" style="width: 200px;">
-                        <input type="text" name="search" class="form-control" value="{{ $search }}" placeholder="Search...">
+                        <input type="text" name="search" class="form-control" value="{{ $search }}" placeholder="Buscar...">
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                     <a href="{{ $_createLink }}" class="btn btn-sm btn-primary pull-right">
-                        <i class="fa fa-plus"></i> <span>Add</span>
+                        <i class="fa fa-plus"></i> <span>Agregar</span>
                     </a>
                 </form>
             </div>
@@ -65,7 +65,7 @@ if (count($records) > 0) {
                 </div>
                 @include($resourceAlias.'.table')
             @else
-                <p class="margin-l-5 lead text-green">No records found.</p>
+                <p class="margin-l-5 lead text-green">No Existen Registros.</p>
             @endif
         </div>
         <!-- /.box-body -->

@@ -25,12 +25,12 @@
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3>{{ $reports->getTotalUsers() }}</h3>
-                    <p>Users</p>
+                    <p>Usuarios</p>
                 </div>
                 <div class="icon smaller">
                     <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
-                <a href="{{ route('admin::users.index') }}" class="small-box-footer">Lista Usuarios <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin::users.index') }}" class="small-box-footer">Lista de Usuarios <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->

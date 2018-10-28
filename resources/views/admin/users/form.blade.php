@@ -1,8 +1,8 @@
 <div class="col-md-7">
     <div class="col-md-12">
         <div class="form-group margin-b-5 margin-t-5{{ $errors->has('name') ? ' has-error' : '' }}">
-            <label for="name">Name *</label>
-            <input type="text" class="form-control" name="name" placeholder="Name" value="{{ old('name', $record->name) }}" required>
+            <label for="name">Nombre *</label>
+            <input type="text" class="form-control" name="name" placeholder="Nombre" value="{{ old('name', $record->name) }}" required>
 
             @if ($errors->has('name'))
                 <span class="help-block">
@@ -17,7 +17,7 @@
     <div class="col-md-12">
         <div class="form-group margin-b-5 margin-t-5{{ $errors->has('email') ? ' has-error' : '' }}">
             <label for="email">Correo Electronico *</label>
-            <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email', $record->email) }}" required>
+            <input type="email" class="form-control" name="email" placeholder="Correo Electronico" value="{{ old('email', $record->email) }}" required>
 
             @if ($errors->has('email'))
                 <span class="help-block">
@@ -32,7 +32,7 @@
     <div class="col-md-12">
         <div class="form-group margin-b-5 margin-t-5{{ $errors->has('password') ? ' has-error' : '' }}">
             <label for="password">Contraseña</label>
-            <input type="password" class="form-control" name="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" placeholder="Contraseña">
 
             @if ($errors->has('password'))
                 <span class="help-block">
@@ -47,7 +47,7 @@
     <div class="col-md-12">
         <div class="form-group margin-b-5 margin-t-5{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
             <label for="password_confirmation">Confirmar Contraseña</label>
-            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
+            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmar Contraseña">
 
             @if ($errors->has('password_confirmation'))
                 <span class="help-block">
@@ -68,7 +68,7 @@
         <div class="form-group margin-b-5 margin-t-5">
             <label for="is_admin">
                 <input type="checkbox" class="square-blue" name="is_admin" value="1" {{ old('is_admin', $record->is_admin) == 1 ? 'checked' : '' }}>
-                Is Admin
+                Es Administrador
             </label>
         </div>
         <!-- /.form-group -->

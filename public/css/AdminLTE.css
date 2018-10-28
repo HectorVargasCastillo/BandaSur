@@ -95,7 +95,8 @@ body {
 }
 .content-wrapper {
   min-height: 100%;
-  background-color: #ecf0f5;
+  /*background-color: #ecf0f5;*/
+  background-color:#FF0000;
   z-index: 800;
 }
 .main-footer {
@@ -3107,6 +3108,7 @@ table.text-center th {
   display: inline-block;
   margin-top: -20px;
 }
+
 /*
  * Component: modal
  * ----------------

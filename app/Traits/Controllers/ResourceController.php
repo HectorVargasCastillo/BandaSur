@@ -76,11 +76,11 @@ trait ResourceController
         $this->resourceValidate($request, 'store');
 
         if ($record = $this->getResourceModel()::create($this->alterValuesToSave($request, $valuesToSave))) {
-            flash()->success('Element successfully inserted.');
+            flash()->success('Elemento insertado existosamnete.');
 
             return $this->getRedirectAfterSave($record);
         } else {
-            flash()->info('Element was not inserted.');
+            flash()->info('Elemento no fue insertado.');
         }
 
         return $this->redirectBackTo(route($this->getResourceRoutesAlias().'.index'));
@@ -138,11 +138,11 @@ trait ResourceController
         $this->resourceValidate($request, 'update', $record);
 
         if ($record->update($this->alterValuesToSave($request, $valuesToSave))) {
-            flash()->success('Element successfully updated.');
+            flash()->success('Elemento actualizado exitosamente.');
 
             return $this->getRedirectAfterSave($record);
         } else {
-            flash()->info('Element was not updated.');
+            flash()->info('Elemento no actualizado.');
         }
 
         return $this->redirectBackTo(route($this->getResourceRoutesAlias().'.index'));
@@ -166,9 +166,9 @@ trait ResourceController
         }
 
         if ($record->delete()) {
-            flash()->success('Element successfully deleted.');
+            flash()->success('Elemento eliminado existosamente.');
         } else {
-            flash()->info('Element was not deleted.');
+            flash()->info('Elemento no fue eliminado.');
         }
 
         return $this->redirectBackTo(route($this->getResourceRoutesAlias().'.index'));

@@ -90,7 +90,7 @@
 
                     @yield('content')
 					
-					 <img src="img/bandasur.jpg"> 
+					<!--27.10.2018 <img src="img/bandasur.jpg"> -->
 
                 </section>
                 <!-- /.content -->

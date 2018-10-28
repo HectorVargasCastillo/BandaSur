@@ -23,8 +23,8 @@ class AdminAccess
             }
         }
 
-        flash()->error('Access Denied');
+        flash()->error('Acceso Denegado');
 
-        return ($request->ajax() || $request->wantsJson()) ? response('Unauthorized.', 401) : redirect(route('dashboard::index'));
+        return ($request->ajax() || $request->wantsJson()) ? response('No Autorizado.', 401) : redirect(route('dashboard::index'));
     }
 }

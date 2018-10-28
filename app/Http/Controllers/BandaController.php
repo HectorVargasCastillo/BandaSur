@@ -43,21 +43,33 @@ class BandaController extends Controller
             'pais' => 'numeric|min:1', 
 			'ciudad' => 'numeric|min:1', 
 			'estilo' => 'numeric|min:1',
+            'imagen' => 'required|mimes:jpeg,jpg,png|max:1000',
             'representante' => 'required|max:30|unique:banda,representante',
 			'estado' => 'required|max:1', 
         ]);
+
+       
+        $photo = $request->file('imagen');
+        //$ruta_img='/img/bandas/'.$request->nombre.'/';
+        $ruta_img='/img/bandas/';
+        $nombre_img = $photo->getClientOriginalName();
+        $destino_img=$ruta_img.$nombre_img;
         $bandab = new Banda;
         $bandab->nombre=$request->nombre;
 		$bandab->pais_id=$request->pais;
 		$bandab->ciudad_id=$request->ciudad;
 		$bandab->estilo_id=$request->estilo;
-        $bandab->imagen=$request->imagen;
+        $bandab->ruta_img=$ruta_img;
+        $bandab->nombre_img=$nombre_img;
+        $bandab->destino_img=$destino_img;
         $bandab->representante=$request->representante;
         $bandab->estado=$request->estado;
         $bandab->save();
         //return redirect()->back();
         return redirect('/bandas');
     }
+
+   
 
     public function show($id)
     {

@@ -119,3 +119,7 @@ Route::get('integrantes/integrantesxBanda/{id}', 'IntegranteController@integrant
 Route::get('integrantes/creaintegranteBanda/{id}', 'IntegranteController@creaintegranteBanda')->name('creaintegranteBanda');
 
 Route::resource('eventos', 'EventoController');
+
+Route::resource('registro_donaciones', 'RegistroDonacionController');
+
+Route::get('registro_donaciones/creaDonacion/{id}', 'RegistroDonacionController@creaDonacion')->name('creaDonacion');

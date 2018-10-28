@@ -1,9 +1,39 @@
-        @extends('layouts.backend')
+      
+{{-- Extends Layout --}}
+@extends('layouts.backend')
+
+{{-- Page Title --}}
+@section('page-title', 'Administrador')
+
+{{-- Page Subtitle --}}
+@section('page-subtitle', 'Eventos')
+
+{{-- Breadcrumbs --}}
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('admin') !!}
+@endsection
+
+{{-- Header Extras to be Included --}}
+@section('head-extras')
+    @parent
+@endsection
+
 
         @section('content')
 
-        <h1>Administrar Eventos</h1>
+         <?php
+            
+            $usuario = Auth::user()->id;
+            ?>
 
+         
+<li>
+            <a href="">
+                <i class="fa fa-user-secret"></i> <span>{{$usuario}}</span>
+            </a>
+</li>
+
+      
         <div>
             <button type="button" onclick="location.href = '{{ url('/eventos/create') }}'" class="btn btn-success">Agregar Evento</button>
         </div>
@@ -22,7 +52,8 @@
 				<td width="90" height="20" align="center">Banda</td>
 				<td width="90" height="20" align="center">Productora</td>
 				<td width="90" height="20" align="center">Estado</td>
-            <td colspan="6" width="90" height="20" align="center">Accion</td>
+                <td colspan="2" width="10" height="20" align="center">Acciones</td> 
+                
         	</tr>
 
         	@foreach($listado_evento as $evento)
@@ -42,23 +73,40 @@
                 @else  
                     <td width="90" height="20" align="center">No Vigente</td>  
                 @endif
-				<td align="center"><a href="{{ url('/eventos/'.$evento->id.'/edit') }}" class="btn btn-warning pull-right">Editar evento<a></td>
 
-           		<td align="center">
-           			<form class="form-horizontal"  method="POST" action="{{url('/eventos/'.$evento->id)}}">
+				<td width="50" height="20" align="center">
+
+                   
+                    <a href="{{ url('/eventos/'.$evento->id.'/edit') }}" class="btn btn">
+<img src="/img/editar.png" alt="Editar" title="Editar" style="max-width:100%;width:auto;height:auto;">    
+                    </a>
+
+                  </td>  
+
+
+                    <form class="form-horizontal"  method="POST" action="{{url('/eventos/'.$evento->id)}}">
                     <input name="_method" type="hidden" value="DELETE">
                       {{ csrf_field() }}
-                        <td><button type="submit" class="btn btn-danger pull-right" onclick="return confirm('¿Esta Seguro?')">Eliminar evento</button></td>
+                     <td width="50" height="20" align="center">  
+                            <button type="submit" class="btn btn-default" 
+                            onclick="return confirm('¿Esta Seguro?')">
+                            <img src="/img/borrar.png" alt="Eliminar" title="Eliminar" style="max-width:100%;width:auto;height:auto;">     
+                            </button>
+                        </td>  
                      </form>
-                </td>
+
+                 </td>
+
            </tr>
         	@endforeach
         </table>
+
+        <!--28.10.2018
         <div>
         	<h1></h1>
         </div>
         <div>
             <button type="button" onclick="location.href = '{{ url('/dashboard') }}'" class="btn btn-info">Salir</button>
         </div>
-
+        -->
         @endsection
