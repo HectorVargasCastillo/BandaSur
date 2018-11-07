@@ -28,5 +28,10 @@ class Evento extends Model
 	 {
    		 return $this->belongsTo(Productora::class);
 	 }
+
+	 public function estado_evento()
+	 {
+   		 return $this->belongsTo(EstadoEvento::class);
+	 }
 	
 }

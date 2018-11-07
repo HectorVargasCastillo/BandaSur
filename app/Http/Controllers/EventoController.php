@@ -8,6 +8,7 @@ use App\Pais;
 use App\Ciudad;
 use App\Banda;
 use App\Productora;
+use App\EstadoEvento;
 
 class EventoController extends Controller
 {
@@ -44,8 +45,12 @@ class EventoController extends Controller
 		$productora_collection = Productora::pluck('nombre','id');
         $productora = $productora_collection->all();
         $productora = array('0' => 'Selecione Productora') + $productora;
+
+        $estado_evento_collection = Productora::pluck('nombre','id');
+        $estado_evento = $estado_evento_collection->all();
+        $estado_evento = array('0' => 'Selecione Estado') + $estado_evento;
 		
-        return view('/evento/nuevoevento',['pais'=>$pais,'ciudad'=>$ciudad,'banda'=>$banda,'productora'=>$productora]);
+        return view('/evento/nuevoevento',['pais'=>$pais,'ciudad'=>$ciudad,'banda'=>$banda,'productora'=>$productora,'estado_evento'=>$estado_evento]);
     }
 
     
@@ -71,7 +76,7 @@ class EventoController extends Controller
 		$eventob->hora=$request->hora;
 		$eventob->banda_id=$request->banda;
 		$eventob->productora_id=$request->productora;
-        $eventob->estado=$request->estado;
+        $eventob->estado_evento_id=$request->estado;
         $eventob->save();
         //return redirect()->back();
         return redirect('/eventos');
@@ -96,9 +101,12 @@ class EventoController extends Controller
 		$productora_collection = Productora::pluck('nombre','id');
         $productora = $productora_collection->all();
         $productora = array('0' => 'Selecione Productora') + $productora;
+         $estado_evento_collection = Productora::pluck('nombre','id');
+        $estado_evento = $estado_evento_collection->all();
+        $estado_evento = array('0' => 'Selecione Estado') + $estado_evento;
 		
-        $idevento = evento::find($id);
-        return view('/evento/editaevento',['idevento'=>$idevento,'pais'=>$pais,'ciudad'=>$ciudad,'banda'=>$banda,'productora'=>$productora]);
+        $idevento = Evento::find($id);
+        return view('/evento/editaevento',['idevento'=>$idevento,'pais'=>$pais,'ciudad'=>$ciudad,'banda'=>$banda,'productora'=>$productora,'estado_evento'=>$estado_evento]);
     }
 
    
@@ -116,7 +124,7 @@ class EventoController extends Controller
 			'productora' => 'numeric|min:1',
 			'estado' => 'required|max:1', 
         ]);
-        $eventob = evento::find($id);
+        $eventob = Evento::find($id);
         $eventob->nombre=$request->nombre;
 		$eventob->pais_id=$request->pais;
 		$eventob->ciudad_id=$request->ciudad;
@@ -125,14 +133,14 @@ class EventoController extends Controller
 		$eventob->hora=$request->hora;
 		$eventob->banda_id=$request->banda;
 		$eventob->productora_id=$request->productora;
-        $eventob->estado=$request->estado;
+        $eventob->estado_evento_id=$request->estado;
         $eventob->save();
         return redirect('/eventos');
     }
 
     public function destroy($id)
     {
-        $eventob = evento::find($id);
+        $eventob = Evento::find($id);
         $eventob->delete();
         return redirect('/eventos');
     }

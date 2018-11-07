@@ -71,25 +71,24 @@
                     </div>
                   </div>
 				  
-				  <div class="form-group">
+				         <div class="form-group">
                     <label for="banda" class="col-sm-2 control-label">Banda</label>
                     <div class="col-sm-10">
                            {{Form::select('banda', $banda,0,['class' => 'form-control'])}} 
                     </div>
                   </div>
 
-				 <div class="form-group">
+				          <div class="form-group">
                     <label for="productora" class="col-sm-2 control-label">Productora</label>
                     <div class="col-sm-10">
                            {{Form::select('productora', $productora,0,['class' => 'form-control'])}} 
                     </div>
                   </div>
 			
-                   <div class="form-group">
-                    <label for="estado" class="col-sm-2 control-label">Estado evento</label>
+                    <div class="form-group">
+                    <label for="estado" class="col-sm-2 control-label">Estado Evento</label>
                     <div class="col-sm-10">
-                           {{Form::radio('estado','V', true)}} Vigente
-                           {{Form::radio('estado','X')}} No Vigente
+                           {{Form::select('estado_evento', $estado_evento,0,['class' => 'form-control'])}} 
                     </div>
                   </div>
                

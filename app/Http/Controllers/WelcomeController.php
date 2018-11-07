@@ -19,4 +19,6 @@ class WelcomeController extends Controller
         return view("welcome",['slider_info'=>$slider_info]);
 		
     }
+
+   
 }

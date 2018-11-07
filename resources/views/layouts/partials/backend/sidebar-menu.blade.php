@@ -12,17 +12,17 @@
 			<a href="{{ url('/registro_donaciones/creaDonacion/'.$id_usuario) }}">
             	<i class="fa fa-dashboard"></i> <span>Registro Donaciones</span>
         	</a>
-
+			<a href="{{ url('/registro_propuestas/creaPropuesta/'.$id_usuario) }}">
+            	<i class="fa fa-dashboard"></i> <span>Registro Propuestas</span>
+        	</a>
         @else
 			<a href="{{ url('/registro_donaciones/listaDonacion/'.$id_usuario) }}">
             	<i class="fa fa-dashboard"></i> <span>Registro Donaciones</span>
         	</a>
+			<a href="{{ url('/registro_propuestas/listaPropuesta/'.$id_usuario) }}">
+            	<i class="fa fa-dashboard"></i> <span>Registro Propuestas</span>
+        	</a>
         @endif
- 	    
-       <a href="{{ route('dashboard::index') }}">
-            <i class="fa fa-dashboard"></i> <span>Registro Propuestas</span>
-        </a>
-
     </li>
     @if (Auth::user()->can('viewList', \App\User::class))
         <li class="{{ \App\Utils::checkRoute(['admin::users.index', 'admin::users.create']) ? 'active': '' }}">

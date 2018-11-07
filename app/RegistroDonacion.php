@@ -14,10 +14,12 @@ class RegistroDonacion extends Model
    		 return $this->belongsTo(Evento::class);
 	 }
 
-	 public function users()
+	 public function user()
 	 {
-   		 return $this->belongsTo(Users::class);
+   		 return $this->belongsTo(User::class);
 	 }
+
+	
 
 	 
 }

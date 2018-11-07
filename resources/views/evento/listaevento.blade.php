@@ -68,12 +68,7 @@
 				<td align="center">{{ $evento->hora}}</td>
                 <td align="center">{{ $evento->banda['nombre']}}</td>
 				<td align="center">{{ $evento->productora['nombre']}}</td>
-                @if ($evento->estado == "V")
-                    <td width="90" height="20" align="center">Vigente</td>
-                @else  
-                    <td width="90" height="20" align="center">No Vigente</td>  
-                @endif
-
+                <td align="center">{{ $evento->estado_evento_id['descripcion']}}</td>
 				<td width="50" height="20" align="center">
 
                    

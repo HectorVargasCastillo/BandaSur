@@ -88,15 +88,9 @@
                   </div>
  
                    <div class="form-group">
-                    <label for="estado" class="col-sm-2 control-label">Estado evento</label>
+                    <label for="estado" class="col-sm-2 control-label">Estado Evento</label>
                     <div class="col-sm-10">
-                      @if ($idevento->estado == 'V')
-                           {{Form::radio('estado','V', true)}} Vigente
-                           {{Form::radio('estado','X', false)}} No Vigente
-                      @else
-                           {{Form::radio('estado','V', false)}} Vigente
-                           {{Form::radio('estado','X', true)}} No Vigente
-                      @endif     
+                         {{Form::select('estado_evento', $estado_evento,$idevento->estado_evento_id,['class' => 'form-control'])}} 
                     </div>
                   </div>
 

@@ -13,6 +13,8 @@
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 
+
+
 /**
  * Register the typical authentication routes for an application.
  * Replacing: Auth::routes();
@@ -123,3 +125,17 @@ Route::resource('eventos', 'EventoController');
 Route::resource('registro_donaciones', 'RegistroDonacionController');
 
 Route::get('registro_donaciones/creaDonacion/{id}', 'RegistroDonacionController@creaDonacion')->name('creaDonacion');
+
+Route::get('registro_donaciones/listaDonacion/{id}', 'RegistroDonacionController@listaDonacion')->name('listaDonacion');
+
+Route::get('registro_donaciones/editaDonacion/{id}/{id_usuario}', 'RegistroDonacionController@editaDonacion')->name('editaDonacion');
+
+Route::resource('registro_propuestas', 'RegistroPropuestaController');
+
+Route::get('registro_propuestas/creaPropuesta/{id}', 'RegistroPropuestaController@creaPropuesta')->name('creaPropuesta');
+
+Route::get('registro_propuestas/listaPropuesta/{id}', 'RegistroPropuestaController@listaPropuesta')->name('listaPropuesta');
+
+Route::get('registro_propuestas/editaPropuesta/{id}/{id_usuario}', 'RegistroPropuestaController@editaPropuesta')->name('editaPropuesta');
+
+
